@@ -1,0 +1,48 @@
+<!doctype html><html><head><meta charset="utf-8"><title>Cover</title><style>
+:root{--bg:#F3F4F7;--ink:#141821;--muted:#596173;--line:#D8DCE4;--accent:#3B3FD8;--accentbg:#E6E7FB;--warn:#B42318;--warnbg:#FDE7E4;--ok:#0E7A4E;--okbg:#DDF3E8}
+*{box-sizing:border-box;margin:0;padding:0}
+body{width:1600px;height:1200px;background:var(--bg);font-family:Inter,sans-serif;color:var(--ink);position:relative;overflow:hidden}
+.wrap{position:absolute;inset:96px 104px;display:grid;grid-template-columns:1fr 540px;grid-template-rows:1fr auto;gap:56px 72px}
+.eyebrow{font-size:22px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:36px}
+h1{font-family:"Inter Display",Inter,sans-serif;font-weight:700;font-size:96px;line-height:1.02;letter-spacing:-.035em}
+h1 em{font-style:normal;color:var(--accent)}
+.sub{margin-top:40px;font-size:30px;line-height:1.42;color:var(--muted);max-width:820px}
+.card{align-self:center;background:#fff;border:1px solid var(--line);border-radius:28px;padding:38px 40px;box-shadow:0 30px 60px -30px rgba(20,24,33,.28)}
+.hd{display:flex;justify-content:space-between;align-items:flex-start;gap:16px}
+.file{font-size:15px;color:var(--muted);font-family:"DejaVu Sans Mono",monospace;white-space:nowrap;padding-top:12px}
+.who{font-size:30px;font-weight:600;margin-top:14px}
+.badge{white-space:nowrap;background:var(--warnbg);color:var(--warn);font-weight:700;font-size:18px;letter-spacing:.08em;padding:10px 16px;border-radius:999px}
+dl{display:grid;grid-template-columns:150px 1fr;row-gap:14px;font-size:22px;margin:30px 0 26px}
+dt{color:var(--muted)}dd{font-weight:600}
+.flags{border-top:1px solid var(--line);padding-top:22px;display:flex;flex-direction:column;gap:12px}
+.flag{font-size:20px;background:var(--warnbg);color:var(--warn);padding:10px 14px;border-radius:10px;font-weight:500}
+.flag.ok{background:var(--okbg);color:var(--ok)}
+.pipe{grid-column:1/-1;display:flex;align-items:center;gap:16px}
+.step{flex:1;background:var(--ink);color:#fff;border-radius:18px;padding:24px 22px}
+.step small{display:block;font-size:16px;letter-spacing:.12em;text-transform:uppercase;color:#9AA1B2;margin-bottom:8px}
+.step b{font-size:24px;font-weight:600;white-space:nowrap}
+.step.ai{background:var(--accent)}.step.ai small{color:#C9CBF7}
+.arrow{font-size:30px;color:var(--muted)}
+</style></head><body><div class="wrap">
+<div>
+  <div class="eyebrow">AI Automation · n8n workflow</div>
+  <h1>Invoices from<br>inbox to Sheets,<br><em>checked by AI</em></h1>
+  <p class="sub">Gemini reads PDFs and photos, code checks every number. Clean invoices are filed automatically; only the ones with problems reach a human in Slack.</p>
+</div>
+<div class="card">
+  <div class="hd"><div class="file">02-math-error-eur-invoice.pdf</div><div class="badge">NEEDS REVIEW</div></div><div class="who">Brightline Studio B.V.</div>
+  <dl><dt>Invoice #</dt><dd>BL-1187</dd><dt>Date</dt><dd>2026-10-03</dd><dt>Total</dt><dd>2,395.50 EUR</dd><dt>VAT</dt><dd>21% · 409.50</dd></dl>
+  <div class="flags">
+    <div class="flag">Line 2: quantity × price ≠ amount</div>
+    <div class="flag">Subtotal + tax ≠ total</div>
+    <div class="flag ok">Filed to Drive · row in Sheets · Slack alert</div>
+  </div>
+</div>
+<div class="pipe">
+  <div class="step"><small>Trigger</small><b>Gmail</b></div><div class="arrow">→</div>
+  <div class="step ai"><small>Extract</small><b>Gemini JSON</b></div><div class="arrow">→</div>
+  <div class="step"><small>Check</small><b>12 rules</b></div><div class="arrow">→</div>
+  <div class="step"><small>File</small><b>Drive + Sheets</b></div><div class="arrow">→</div>
+  <div class="step"><small>Review</small><b>Slack</b></div>
+</div>
+</div></body></html>

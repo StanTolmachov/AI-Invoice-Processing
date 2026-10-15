@@ -1,0 +1,51 @@
+<!doctype html><html><head><meta charset="utf-8"><title>Flow</title><style>
+:root{--bg:#F3F4F7;--ink:#141821;--muted:#596173;--soft:#D8DCE4;--accent:#3B3FD8;--warn:#B42318;--warnbg:#FDE7E4;--ok:#0E7A4E;--okbg:#DDF3E8}
+*{box-sizing:border-box;margin:0;padding:0}
+body{width:1600px;height:1200px;background:var(--bg);font-family:Inter,sans-serif;color:var(--ink);position:relative;overflow:hidden}
+h2{position:absolute;left:96px;top:72px;font-family:"Inter Display";font-size:56px;letter-spacing:-.03em}
+.lede{position:absolute;left:96px;top:148px;font-size:24px;color:var(--muted)}
+.n{position:absolute;background:#fff;border:1.5px solid var(--soft);border-radius:18px;padding:20px 24px;width:300px}
+.n small{display:block;font-size:15px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:6px;font-weight:600}
+.n b{font-size:24px;font-weight:600;display:block}
+.n p{font-size:18px;color:var(--muted);margin-top:6px;line-height:1.35}
+.n.ai{background:var(--accent);border-color:var(--accent);color:#fff}.n.ai small,.n.ai p{color:#D3D4F9}
+.n.dark{background:var(--ink);border-color:var(--ink);color:#fff}.n.dark small,.n.dark p{color:#A3AABA}
+.n.warn{background:var(--warnbg);border-color:#F4B8AE}.n.warn small{color:var(--warn)}
+.n.ok{background:var(--okbg);border-color:#A6DDC3}.n.ok small{color:var(--ok)}
+.rules{position:absolute;left:96px;top:860px;width:1440px;background:#fff;border:1.5px solid var(--soft);border-radius:18px;padding:24px 28px}
+.rules small{font-size:15px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px 24px;margin-top:14px;font-size:19px}
+.grid span::before{content:"✓ ";color:var(--accent);font-weight:700}
+.tag{position:absolute;font-size:17px;color:var(--muted);background:var(--bg);padding:2px 8px;font-weight:500}
+svg{position:absolute;inset:0}
+</style></head><body>
+<h2>How it works</h2>
+<div class="lede">The model only extracts. Every decision is made by tested code.</div>
+<svg width="1600" height="1200"><defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#8A90A0"/></marker></defs>
+<g fill="none" stroke="#8A90A0" stroke-width="2.5">
+<path d="M396 315 L 476 315" marker-end="url(#a)"/>
+<path d="M776 315 L 856 315" marker-end="url(#a)"/>
+<path d="M1156 315 C 1210 315, 1200 315, 1236 315" marker-end="url(#a)"/>
+<path d="M1386 385 L 1386 455" marker-end="url(#a)"/>
+<path d="M1236 525 L 1156 525" marker-end="url(#a)"/>
+<path d="M856 500 C 820 500, 810 470, 776 470" marker-end="url(#a)"/>
+<path d="M856 550 C 820 550, 810 600, 776 600" marker-end="url(#a)"/>
+<path d="M476 600 L 396 600" marker-end="url(#a)"/>
+</g></svg>
+<div class="n" style="left:96px;top:250px"><small>Trigger</small><b>Gmail</b><p>New email with PDF / image attachment</p></div>
+<div class="n" style="left:476px;top:250px"><small>Code</small><b>Split &amp; dedupe</b><p>One item per file · skip already seen</p></div>
+<div class="n ai" style="left:856px;top:250px"><small>AI · HTTP</small><b>Gemini extract</b><p>Strict JSON schema · retries ×3</p></div>
+<div class="n" style="left:1236px;top:250px;width:300px"><small>Code</small><b>Validate</b><p>12 checks + duplicate memory</p></div>
+<div class="n dark" style="left:1236px;top:460px;width:300px"><small>Route</small><b>Status</b><p>approved · review · skipped</p></div>
+<div class="n" style="left:856px;top:460px"><small>Google Drive</small><b>Archive file</b><p>2026-10-03_Vendor_INV-1187.pdf</p></div>
+<div class="n ok" style="left:476px;top:420px;width:300px"><small>Auto-approved</small><b>Row in Sheets</b><p>No human needed</p></div>
+<div class="n warn" style="left:476px;top:570px;width:300px"><small>Needs review</small><b>Row + flags</b><p>Reason written in the row</p></div>
+<div class="n warn" style="left:96px;top:540px"><small>Slack</small><b>Review alert</b><p>Vendor, total, issues, Drive link</p></div>
+<div class="n dark" style="left:1236px;top:650px;width:300px"><small>Error workflow</small><b>Slack alert on crash</b><p>Separate workflow, link to execution</p></div>
+<span class="tag" style="left:1290px;top:410px">decide</span>
+<div class="rules"><small>Checks the code runs on every document</small><div class="grid">
+<span>qty × price = line amount</span><span>lines add up to subtotal</span><span>subtotal + tax = total</span><span>tax matches rate</span>
+<span>required fields present</span><span>valid dates, due ≥ issue</span><span>not in future, &lt; 2 years</span><span>ISO currency</span>
+<span>duplicate vendor + number</span><span>approval limit per currency</span><span>credit notes</span><span>low model confidence</span>
+</div></div>
+</body></html>

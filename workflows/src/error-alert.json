@@ -1,0 +1,31 @@
+{
+  "name": "Invoice processing – error alert",
+  "nodes": [
+    {
+      "id": "b2e0c0de-0001-4000-8000-000000000001",
+      "name": "Error Trigger",
+      "type": "n8n-nodes-base.errorTrigger",
+      "typeVersion": 1,
+      "position": [0, 0],
+      "parameters": {}
+    },
+    {
+      "id": "b2e0c0de-0002-4000-8000-000000000002",
+      "name": "Slack: workflow failed",
+      "type": "n8n-nodes-base.slack",
+      "typeVersion": 2.2,
+      "position": [220, 0],
+      "parameters": {
+        "select": "channel",
+        "channelId": { "__rl": true, "mode": "name", "value": "#invoices" },
+        "text": "=:rotating_light: *{{ $json.workflow.name }}* failed at node *{{ $json.execution.lastNodeExecuted }}*\n{{ $json.execution.error.message }}\nExecution: {{ $json.execution.url }}",
+        "otherOptions": { "includeLinkToWorkflow": false }
+      }
+    }
+  ],
+  "connections": {
+    "Error Trigger": { "main": [[{ "node": "Slack: workflow failed", "type": "main", "index": 0 }]] }
+  },
+  "settings": { "executionOrder": "v1" },
+  "pinData": {}
+}
